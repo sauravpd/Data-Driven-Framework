@@ -1,18 +1,26 @@
 package tests;
 
+import java.util.Hashtable;
+
 import org.openqa.selenium.By;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import utilities.DataProviderUtil;
+import utilities.ExcelUtil;
 
-public class LoginTest extends TestBase
+public class loginTest extends TestBase
 {
-
-	@Test
-	public void testLogin()
+	@Test(dataProviderClass = DataProviderUtil.class, dataProvider = "testData")
+	public void LoginTest(Hashtable<String,String> data)
 	{
-		driver.findElement(By.name(OR.getProperty("username"))).sendKeys("admin");
-		driver.findElement(By.name(OR.getProperty("password"))).sendKeys("admin");
+		if(!(ExcelUtil.isTestRunnable("BankLoginTest","testSuite",excel)))
+		{
+			throw new SkipException("Skipping the test "+this.getClass()+ "as the Run mode is NO");
+		}
+		driver.findElement(By.name(OR.getProperty("username"))).sendKeys(data.get("Username"));
+		driver.findElement(By.name(OR.getProperty("password"))).sendKeys(data.get("Password"));
 		driver.findElement(By.xpath(OR.getProperty("submit"))).click();
 		driver.findElement(By.xpath(OR.getProperty("logout"))).click();
 	}
