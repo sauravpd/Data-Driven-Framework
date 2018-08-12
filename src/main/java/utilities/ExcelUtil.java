@@ -1,11 +1,13 @@
 package utilities;
 
+import base.TestBase;
+
 /**
  * 
  * @author saurav
  *
  */
-public class ExcelUtil 
+public class ExcelUtil extends TestBase
 {
 	/**
 	 * 
@@ -13,7 +15,7 @@ public class ExcelUtil
 	 * @param excel
 	 * @return
 	 */
-	public static boolean isTestRunnable(String testName,String sheetName, ExcelReader excel)
+	public static boolean isTestRunnable(String testName,String sheetName)
 	{
 		int rows = excel.getRowCount(sheetName);
 
