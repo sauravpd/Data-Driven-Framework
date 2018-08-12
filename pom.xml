@@ -12,6 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<suiteName>${suite}</suiteName>
 	</properties>
 
 	<dependencies>
@@ -120,9 +121,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
-					<testFailureIgnore> false </testFailureIgnore>
+					<testFailureIgnore>false</testFailureIgnore>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/runner/testng.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/suites/${suiteName}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
