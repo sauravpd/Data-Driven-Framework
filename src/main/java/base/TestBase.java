@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import utilities.ExcelReader;
+
 public class TestBase 
 {
 	public static WebDriver driver;
@@ -20,6 +22,7 @@ public class TestBase
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
 	public static Logger log = Logger.getLogger(TestBase.class);
+	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\main\\resources\\data\\testdata.xlsx");
 
 	public static WebDriverWait wait;
 
