@@ -15,7 +15,7 @@ public class loginTest extends TestBase
 	@Test(dataProviderClass = DataProviderUtil.class, dataProvider = "testData")
 	public void LoginTest(Hashtable<String,String> data)
 	{
-		if(!(ExcelUtil.isTestRunnable("BankLoginTest","testSuite",excel)))
+		if(!(ExcelUtil.isTestRunnable("BankLoginTest","testSuite")))
 		{
 			throw new SkipException("Skipping the test "+this.getClass()+ "as the Run mode is NO");
 		}
