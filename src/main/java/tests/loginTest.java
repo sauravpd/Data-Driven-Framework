@@ -10,7 +10,7 @@ import base.TestBase;
 import utilities.DataProviderUtil;
 import utilities.ExcelUtil;
 
-public class loginTests extends TestBase
+public class loginTest extends TestBase
 {
 	@Test(dataProviderClass = DataProviderUtil.class, dataProvider = "testData")
 	public void LoginTest(Hashtable<String,String> data)
